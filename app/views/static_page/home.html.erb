@@ -1,0 +1,17 @@
+<h1>StaticPage#home</h1>
+
+var message= {
+body: "hi",
+from_id: 1,
+to_id: 2
+}
+
+dispatcher.trigger('new_message', message);
+
+<br><br>
+
+Message   : <%= text_field_tag "body" %><br>
+from_id   : <%= text_field_tag "from" %><br>
+to_id     : <%= text_field_tag "to" %><br>
+<%= button_tag "submit", id: "sub"%>
+
