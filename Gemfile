@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'grape'
 gem 'websocket-rails'
+gem 'capistrano'
