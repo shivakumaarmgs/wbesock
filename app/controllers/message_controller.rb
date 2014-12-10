@@ -1,8 +1,9 @@
 class MessageController < WebsocketRails::BaseController
   def new_message
     Rails.logger.info "#{message}"
-    from = User.find(message[:from_id])
-    from.send_message(message[:body], message[:to_id])
+    #from = User.find(message[:from_id])
+    #from.send_message(message[:body], message[:to_id])
+    GroupMessage.create(username: message[:username], body: message[:body])
     WebsocketRails[:messages].trigger(:new_message, message)
   end
 end

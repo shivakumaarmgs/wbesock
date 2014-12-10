@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208130142) do
+ActiveRecord::Schema.define(version: 20141210103704) do
+
+  create_table "group_messages", force: true do |t|
+    t.string   "body"
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.string   "body"

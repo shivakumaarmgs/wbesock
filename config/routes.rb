@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  resources :group_messages
+
   get 'static_page/home'
 
   get 'message/new_message'
 
   resources :users
+
+  root 'static_page#home'
 
   mount ApplicationAPI => '/api'
 

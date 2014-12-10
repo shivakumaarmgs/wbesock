@@ -1,17 +1,93 @@
-<h1>StaticPage#home</h1>
-
-var message= {
-body: "hi",
-from_id: 1,
-to_id: 2
-}
-
-dispatcher.trigger('new_message', message);
-
+<div class="row">
+  <h1>StaticPage#home</h1>
+  <div class="col-md-4">
+    <h4> JSON Payload </h4>
+    <p>
+    {<br>
+    username: "name",<br>
+    body: "hi"<br>
+    }<br><br>
+    url : 50.116.32.32:3000/websocket
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h4> Method 1 </h4>
+    <p>
+    Channel Name: 'messages'<br>
+    Event Name: 'new_message'
+    <br><br>
+    Json Payload same as given. In this method all clients subscribed to the
+    channel will receive the message. Server events are not initiated in this
+    method. This method will be mostly used to push data from server to multiple
+    clients at the same time.
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h4> Method 2 </h4>
+    <p>
+    Socket Name: 'new_message'<br>
+    <br><br>
+    In this method data is sent from client side to server. This method is used to
+    push data from clients to server. In our example when browser(clients) push data
+    to server it stores them in db and pusblishes it to the channel(method 1) hence
+    the message will be updated for all the browser(clients)
+    </p>
+  </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <h4>Group Messages</h4>
+    <hr>
+    <div class="messages">
+      <div class="well well-sm"><b>Name :</b> Message </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="col-md-12">
+      <h4> Create Message Method 1 </h4>
+      <hr>
+      <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3">Username</label>
+        <div class="col-sm-9">
+          <%= text_field_tag "username" %>
+          <%#= text_field_tag "username", "" , class: "form-control", placeholder: "Type any name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3">Message</label>
+        <div class="col-sm-9">
+          <%= text_field_tag "body" %>
+          <%#= text_field_tag "body", "" , class: "form-control", placeholder: "Enter any message" %>
+        </div>
+      </div>
+      <%= button_tag "submit", class: "btn btn-success pull-right", onclick: "javascript:send_group_message_channel_method()", type: "button" %>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <h4> Create Message Method 2</h4>
+      <hr>
+      <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3">Username</label>
+        <div class="col-sm-9">
+          <%= text_field_tag "username1" %>
+          <%#= text_field_tag "username", "" , class: "form-control", placeholder: "Type any name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3">Message</label>
+        <div class="col-sm-9">
+          <%= text_field_tag "body1" %>
+          <%#= text_field_tag "body", "" , class: "form-control", placeholder: "Enter any message" %>
+        </div>
+      </div>
+      <%= button_tag "submit", class: "btn btn-success pull-right", onclick: "javascript:send_group_message_event_router_method()", type: "button" %>
+      </form>
+    </div>
+  </div>
+</div>
 <br><br>
-
-Message   : <%= text_field_tag "body" %><br>
-from_id   : <%= text_field_tag "from" %><br>
-to_id     : <%= text_field_tag "to" %><br>
-<%= button_tag "submit", id: "sub"%>
-
