@@ -43,6 +43,7 @@ gem 'websocket-rails'
 gem 'capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
+gem 'pg'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

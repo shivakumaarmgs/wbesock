@@ -17,4 +17,6 @@ WebsocketRails::EventMap.describe do
     subscribe :android_test, :to => MessageController, :with_method => :android_test
 
     subscribe :ios_test, :to => MessageController, :with_method => :ios_test
+
+    private_channel :secret_posts
 end

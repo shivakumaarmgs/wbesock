@@ -1,6 +1,11 @@
 class MessageController < WebsocketRails::BaseController
   def new_message
     Rails.logger.info "#{message}"
+    #Rails.logger.info "#{connection}"
+    #Rails.logger.info "#{connection.user_identifier}"
+    #WebsocketRails.users["client1"] = connection
+    #Rails.logger.info WebsocketRails.users
+    #WebsocketRails.users["client1"].send_message('poke', message)
     #from = User.find(message[:from_id])
     #from.send_message(message[:body], message[:to_id])
     GroupMessage.create(username: message[:username], body: message[:body])

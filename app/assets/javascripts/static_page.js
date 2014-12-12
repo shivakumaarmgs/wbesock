@@ -2,8 +2,8 @@
 //All this logic will automatically be available in application.js.
 //You can use CoffeeScript in this file: http://coffeescript.org/
 
-//var dispatcher = new WebSocketRails('localhost:3000/websocket');
-var dispatcher = new WebSocketRails('50.116.32.32:3000/websocket');
+var dispatcher = new WebSocketRails('localhost:3000/websocket');
+//var dispatcher = new WebSocketRails('50.116.32.32:3000/websocket');
 
 dispatcher.on_open = function(data) {
   console.log('Connection has been established: ', data);
@@ -16,6 +16,10 @@ channel.bind('new_message', function(data) {
   console.log('channel event received: ' + data["body"]);
   update_message_in_ui(data["username"], data["body"]);
 });
+
+//dispatcher.bind('poke', function(data) {
+  //console.log("channel event received: ::"+data["body"])
+//});
 
 function send_group_message_channel_method() {
   var username = $('input#username').val();
@@ -59,3 +63,13 @@ tests_channel.bind('ios', function(data) {
   $(".ios-count").html(data["count"]);
   $(".ios-batch").html(data["batch"]);
 })
+
+//var private_channel = dispatcher.subscribe_private('secret_posts');
+
+//private_channel.on_success = function(current_user) {
+  //console.log( current_user.name + "Has joined the channel");
+//}
+
+//private_channel.on_failure = function(reason) {
+  //console.log( "Authorization failed because " + reason.message );
+//}

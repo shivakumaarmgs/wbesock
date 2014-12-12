@@ -20,6 +20,26 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#production:
+  #<<: *default
+  #database: db/production.sqlite3
+
+development:
+  adapter: postgresql
+  database: wbesocket_development
+  pool: 5
+  username: testuser
+  password: admin123
+  host: localhost
+  encoding: unicode
+  timeout: 5000
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: wbesocket_production
+  pool: 5
+  username: testuser
+  password: admin123
+  host: localhost
+  encoding: unicode
+  timeout: 5000
