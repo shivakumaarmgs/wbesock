@@ -1,0 +1,42 @@
+<div class="row">
+  <h2> Number of Messages Received</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="text-primary">Android Test</h2>
+    </div>
+    <div class="col-md-2">
+      <h3 class="text-success android-count">0</h3>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-info">Batch : <span class="android-batch text-danger">ABC</span></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="text-primary">IOS Test</h2>
+    </div>
+    <div class="col-md-2">
+      <h3 class="text-success ios-count">0</h3>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-info">Batch : <span class="ios-batch text-danger">ABC</span></h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <h2> How to Test? </h2>
+  <div class="col-md-4">
+    <h4> JSON Payload </h4>
+    <p class="text-info">
+    {<br>
+    "batch" : "some-batch",<br>
+    "message" : "some message"<br>
+      }
+    </p>
+  </div>
+  <div class="col-md-8">
+    <h4 class="text-primary">Socket Name : "android-test" <span class="text-success">for Android</span></h4>
+    <h4 class="text-primary">Socket Name : "ios-test" <span class="text-success">for IOS</span></h4>
+    <p> Send the given json payload to the given socket <span class="text-primary">N number of times</span> (say 50, 100, 200) with a constant batch name like <span class="text-primary">"abc-123"</span> and record if there is any count missmatch to find out message loss. Try the same for variable time intervals between each message.</p>
+  </div>
+</div>

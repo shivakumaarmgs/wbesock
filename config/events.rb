@@ -13,4 +13,8 @@ WebsocketRails::EventMap.describe do
   # The above will handle an event triggered on the client like `product.new`.
   
     subscribe :new_message, :to => MessageController, :with_method => :new_message
+
+    subscribe :android_test, :to => MessageController, :with_method => :android_test
+
+    subscribe :ios_test, :to => MessageController, :with_method => :ios_test
 end

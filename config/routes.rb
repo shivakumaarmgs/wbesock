@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'static_page/home'
 
+  get 'test' => 'static_page#test'
+
   get 'message/new_message'
 
   resources :users

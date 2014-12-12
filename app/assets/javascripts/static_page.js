@@ -44,3 +44,18 @@ function send_group_message_event_router_method() {
 function update_message_in_ui(name, body) {
   $('div.messages').append("<div class='well well-sm'><b>" + name+" : </b>"+ body + " </div>");
 }
+
+var tests_channel = dispatcher.subscribe('tests');
+
+
+tests_channel.bind('android', function(data) {
+  console.log('channel event received: ' + data["count"]);
+  $(".android-count").html(data["count"]);
+  $(".android-batch").html(data["batch"]);
+});
+
+tests_channel.bind('ios', function(data) {
+  console.log('channel event received: ' + data["count"]);
+  $(".ios-count").html(data["count"]);
+  $(".ios-batch").html(data["batch"]);
+})

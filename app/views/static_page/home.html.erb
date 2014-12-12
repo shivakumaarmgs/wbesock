@@ -2,20 +2,20 @@
   <h1>StaticPage#home</h1>
   <div class="col-md-4">
     <h4> JSON Payload </h4>
-    <p>
+    <p class="text-primary">
     {<br>
     username: "name",<br>
     body: "hi"<br>
-    }<br><br>
+    }</p><p>
     url : 50.116.32.32:3000/websocket
     </p>
   </div>
   <div class="col-md-4">
     <h4> Method 1 </h4>
-    <p>
+    <p class="text-primary">
     Channel Name: 'messages'<br>
-    Event Name: 'new_message'
-    <br><br>
+    Event Name: 'new_message'</p>
+    <p>
     Json Payload same as given. In this method all clients subscribed to the
     channel will receive the message. Server events are not initiated in this
     method. This method will be mostly used to push data from server to multiple
@@ -24,9 +24,9 @@
   </div>
   <div class="col-md-4">
     <h4> Method 2 </h4>
+    <p class="text-primary">
+    Socket Name: 'new_message'<br></p>
     <p>
-    Socket Name: 'new_message'<br>
-    <br><br>
     In this method data is sent from client side to server. This method is used to
     push data from clients to server. In our example when browser(clients) push data
     to server it stores them in db and pusblishes it to the channel(method 1) hence

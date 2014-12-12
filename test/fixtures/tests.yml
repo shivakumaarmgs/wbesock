@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  os_type: 1
+  message: MyString
+  batch: MyString
+
+two:
+  os_type: 1
+  message: MyString
+  batch: MyString
